@@ -13,3 +13,13 @@ results
 
 npm-debug.log
 node_modules
+
+.DS_Store
+pids
+coverage
+.grunt
+.lock-wscript
+dist/
+node_modules
+.npm
+.node_repl_history
