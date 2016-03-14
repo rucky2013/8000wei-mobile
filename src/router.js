@@ -2,6 +2,10 @@ import Home from './views/home'
 import Article from './views/article'
 import User from './views/user'
 import More from './views/more'
+import Myhome from './views/myhome'
+import Course from './views/course'
+import Message from './views/message'
+import Person from './views/person'
 import Feedback from './views/more/feedback'
 import About from './views/more/about'
 import Rank from './views/home/rank'
@@ -53,6 +57,18 @@ export default function (router) {
     },
     '/more/about': {
       component: About
+    },
+    '/course': {
+      component: Course
+    },
+    '/message': {
+      component: Message
+    },
+    '/person': {
+      component: Person
+    },
+    '/myhome': {
+      component: Myhome
     }
   })
   router.redirect({

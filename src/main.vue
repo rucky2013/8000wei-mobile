@@ -12,28 +12,30 @@
 import VBar from './components/Bar'
 import VTabItem from './components/BarTabItem'
 
+// 调整底部导航图标及地址
+
 export default {
   ready () {
     this.options.items = [
       {
-        path: '/home',
-        icon: 'app',
+        path: '/myhome',
+        icon: 'home',
         label: '首页'
       },
       {
-        path: '/article',
+        path: '/course',
         icon: 'star',
-        label: '任务'
+        label: '课程'
       },
       {
-        path: '/user',
+        path: '/message',
+        icon: 'share',
+        label: '资讯'
+      },
+      {
+        path: '/person',
         icon: 'me',
-        label: '我自己'
-      },
-      {
-        path: '/more',
-        icon: 'gift',
-        label: '更多'
+        label: '个人'
       }
     ]
   },
