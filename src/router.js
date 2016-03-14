@@ -7,7 +7,7 @@ import Course from './views/course'
 import Message from './views/message'
 import Person from './views/person'
 import Feedback from './views/more/feedback'
-import About from './views/more/about'
+import About from './views/myhome/about'
 import Rank from './views/home/rank'
 import Tasks from './views/home/tasks'
 import Invite from './views/home/invite'
@@ -15,6 +15,7 @@ import Profile from './views/user/profile'
 import Profit from './views/user/profit'
 import ProfitRecord from './views/user/profitRecord'
 import Withdraw from './views/user/withdraw'
+import Course_show from './views/course/course_show'
 import $ from 'zepto'
 
 export default function (router) {
@@ -55,9 +56,6 @@ export default function (router) {
     '/more/feedback': {
       component: Feedback
     },
-    '/more/about': {
-      component: About
-    },
     '/course': {
       component: Course
     },
@@ -69,10 +67,16 @@ export default function (router) {
     },
     '/myhome': {
       component: Myhome
+    },
+    '/myhome/about': {
+      component: About
+    },
+    '/course/course_show': {
+      component: Course_show
     }
   })
   router.redirect({
-    '/': '/home'
+    '/': '/myhome'
   })
 
   router.beforeEach(function ({to, from, next}) {

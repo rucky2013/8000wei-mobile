@@ -8,25 +8,15 @@
     :class-name="bar.className">
     <v-tab-item :options="bar"></v-tab-item>
   </v-bar>
-    <v-content type="block-title" style="margin: 0 0 0.4rem;
-  -webkit-box-shadow: 0 .06rem 0 #ccc;box-shadow: 0 .06rem 0 #ccc;background-color: white;">
-    <btn style="float:left;margin: .4rem 0 .3rem .6rem;border:0;color:#6d6d72;padding:0">
-    任务推荐
-    </btn>
-    <btn types="link"
-      style="float:right;margin: .4rem .6rem .3rem 0;border:0;border:0;padding:0"
-      v-link="{path: '/article', replace: true}">
-      更多任务
-    </btn>
-  </v-content>
+    
   <div class="card-container">
     <v-card-container v-for="task in tasks | orderBy 'created' -1"
-    :style="{backgroundColor: task.status === '1' ? 'white': 'rgb(224, 224, 224)' }">
+    :style="{backgroundColor: task.status === '1' ? 'white': 'rgb(224, 224, 224)' }" v-link="{ path: '/course/course_show', replace: true}">
       <card type="content">
         <list type="media">
             <li class="item-content">
               <item type="media">
-                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="44">
+                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="80">
               </item>
               <item type="inner">
                 <item type="title-row">
@@ -39,10 +29,10 @@
       </card>
       <card type="footer" >
         <div style="color:gray">
-        赞助商：{{task.advertiser}}
-        <span style="margin-left: 1rem;padding: .1rem;border: 1px solid #929292;" :style="{color: task.status === '1' ? 'green': 'gray' }">{{task.status === '0' ? '结束' : '已领'}}</span>
+        教师：{{task.advertiser}}
+        <span style="margin-left: 1rem;padding: .1rem;border: 1px solid #929292;" :style="{color: task.status === '1' ? 'green': 'gray' }">{{task.status === '0' ? '已学' : '未学'}}</span>
         </div>
-        <span :style="{color: task.status === '1' ? 'orange': 'gray',fontWeight:'bold'}">{{task.read_profit}} 积分</span>
+        <span :style="{color: task.status === '1' ? 'orange': 'gray',fontWeight:'bold'}">{{task.read_profit}} 元</span>
       </card>
     </v-card-container>
   </div>
@@ -73,19 +63,15 @@ export default {
       slider: {
         imgs: [
           {
-            src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
+            src: '//www.anstnd.cn/banner1_.jpg',
             target: 'www.baidu.com'
           },
           {
-            src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
+            src: '//www.anstnd.cn/banner2_.jpg',
             target: 'www.baidu.com'
           },
           {
-            src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
-            target: 'www.baidu.com'
-          },
-          {
-            src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
+            src: '//www.anstnd.cn/banner3_.jpg',
             target: 'www.baidu.com'
           }
         ],
@@ -96,19 +82,19 @@ export default {
       bar: {
         items: [
           {
-            path: '/home/rank',
+            path: '/message',
             icon: 'star',
-            label: '排行榜'
+            label: '热门'
           },
           {
-            path: '/home/tasks',
+            path: '/course',
             icon: 'computer',
-            label: '我的任务'
+            label: '我的课程'
           },
           {
-            path: '/home/invite',
-            icon: 'friends',
-            label: '邀请有奖'
+            path: '/myhome/about',
+            icon: 'phone',
+            label: '关于'
           }
         ],
         activeClass: 'inactive',
