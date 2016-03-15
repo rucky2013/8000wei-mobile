@@ -6,8 +6,7 @@
    </header>
 	
 	<div class="content">
-   		<p>幻灯片</p>
-    	<p>幻灯片</p>
+   	<slider :imgs="slider.imgs" :config="slider.config"></slider>
     <div class="buttons-tab fixed-tab" data-offset="44">
     <a href="#tab1" class="tab-link active button">最新</a>
     <a href="#tab2" class="tab-link button">行业试点</a>
@@ -39,3 +38,54 @@
     </div>
   </div>
 </template>
+
+<script>
+import $ from 'zepto'
+import Slider from '../components/Slider'
+
+export default {
+  ready () {
+    $.init()
+  },
+  data () {
+    return {
+      slider: {
+        imgs: [
+          {
+            src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
+            target: 'www.baidu.com'
+          },
+          {
+            src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
+            target: 'www.baidu.com'
+          },
+          {
+            src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
+            target: 'www.baidu.com'
+          },
+          {
+            src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
+            target: 'www.baidu.com'
+          }
+        ],
+        config: {
+          autoplay: 1200
+        }
+      }
+    }
+  },
+  components: {
+    Slider
+  },
+  route: {
+    activate ({to, next}) {
+      if ($.slider !== undefined) {
+        $.slider.stopAutoplay()
+        $.slider.startAutoplay()
+      }
+      next()
+    }
+  }
+}
+
+</script>

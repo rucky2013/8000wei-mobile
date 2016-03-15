@@ -1,7 +1,7 @@
 <template>
 <div class="content profile">
   <header class="bar bar-nav">
-    <a class="button button-link button-nav pull-left" v-link="{path: '/user', replace: true}">
+    <a class="button button-link button-nav pull-left" v-link="{path: '/person', replace: true}">
     <span class="icon icon-left"></span>
     </a>
     <h1 class="title">个人资料</h1>
@@ -30,16 +30,6 @@
       </li>
     </ul>
     <ul style="margin-top:.5rem;">
-      <li>
-        <div class="item-content">
-            <div class="item-inner">
-                <div class="item-title label">我的邀请ID</div>
-                <div class="item-input">
-                    <input id="name" type="text" name="name" placeholder="邀请ID" value="76167" readonly="true">
-                </div>
-            </div>
-        </div>
-      </li>
       <li>
         <div class="item-content">
             <div class="item-inner">
@@ -101,16 +91,6 @@
                   <div class="item-title label">职业</div>
                   <div class="item-input">
                       <input id="occupation" type="text" name="occupation" placeholder="职业">
-                  </div>
-              </div>
-          </div>
-      </li>
-      <li>
-          <div class="item-content">
-              <div class="item-inner">
-                  <div class="item-title label">地址</div>
-                  <div class="item-input">
-                      <textarea id="address" name="address" placeholder="地址" ></textarea>
                   </div>
               </div>
           </div>
