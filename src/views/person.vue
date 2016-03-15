@@ -27,8 +27,8 @@
       <span class="tab-label">收藏课程</span>
     </a>
     <a class="tab-item" v-link="">
-      <span class="icon icon-cart"></span>
-      <span class="tab-label">已学课程</span>
+      <span class="icon icon-download"></span>
+      <span class="tab-label">下载App</span>
     </a>
   </nav>
   <div class="list-block user-list">
@@ -42,9 +42,23 @@
         </a>
       </li>
     </ul>
-    
-    <br>
+    <ul>
+      <li>
+        <a class="item-content" v-link="{ path: '/user/profile', replace: true}">
+        <div class="item-media"><span class="icon icon-star"></sapn></div>
+        <div class="item-inner">
+          <div class="item-title"><i>Powered by 8000wei.com ©2016 </i></div>
+        </div>
+        </a>
+      </li>
+    </ul>
+    <div class="content-block">
+    <div class="row">
+      <div class="col-50"><a href="#" class="button button-big button-fill button-success">注册</a></div>
+      <div class="col-50"><a href="#" class="button button-big button-fill button-success">登录</a></div>
+    </div>
   </div>
+  
 </div>
 </template>
 
