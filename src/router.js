@@ -17,6 +17,9 @@ import ProfitRecord from './views/user/profitRecord'
 import Withdraw from './views/user/withdraw'
 import Course_show from './views/course/course_show'
 import Course_play from './views/course/course_play'
+import Luntan from './views/course/luntan'
+import Login from './views/person/login'
+import Enroll from './views/person/enroll'
 import $ from 'zepto'
 
 export default function (router) {
@@ -77,6 +80,15 @@ export default function (router) {
     },
     '/course/course_play': {
       component: Course_play
+    },
+    '/course/luntan': {
+      component: Luntan
+    },
+    '/person/login': {
+      component: Login
+    },
+    '/person/enroll': {
+      component: Enroll
     }
   })
   router.redirect({

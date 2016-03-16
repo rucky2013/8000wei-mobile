@@ -8,7 +8,24 @@
     :class-name="bar.className">
     <v-tab-item :options="bar"></v-tab-item>
   </v-bar>
-    
+<!-- 首页资讯 -->
+
+ <div class="buttons-tab">
+    <a href="#tab1" class="tab-link active button">最新资讯</a>
+    <a href="#tab2" class="tab-link button" v-link="{ path: '/message', replace: true}">更多资讯</a>
+  </div>
+  <div>
+      <div id="tab1" class="tab active">
+        <div class="list-block">
+          <ul class="list-container myhome-msg">
+            <li class="item-content"><a href="">如何从大数据中洞察餐饮市场变化？</a></li>
+            <li class="item-content"><a href="">如何从大数据中洞察餐饮市场变化？</a></li>
+            <li class="item-content"><a href="">如何从大数据中洞察餐饮市场变化？</a></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+
   <div class="card-container">
     <v-card-container v-for="task in tasks | orderBy 'created' -1"
     :style="{backgroundColor: task.status === '1' ? 'white': 'rgb(224, 224, 224)' }" v-link="{ path: '/course/course_show', replace: true}">
@@ -83,13 +100,13 @@ export default {
         items: [
           {
             path: '/message',
-            icon: 'star',
-            label: '热门'
+            icon: 'clock',
+            label: '创业'
           },
           {
-            path: '/course',
-            icon: 'computer',
-            label: '我的课程'
+            path: '/course/luntan',
+            icon: 'friends',
+            label: '论坛'
           },
           {
             path: '/myhome/about',
@@ -169,5 +186,15 @@ export default {
 .home-bar .tab-item {
   height: 3.6rem;
   background-color: white;
+}
+.myhome-tab{
+  margin-top: 0px;
+}
+.myhome-msg{
+  margin:0,0,0,0;
+}
+.myhome-msg a{
+  color: black;
+  font-size: 0.8em;
 }
 </style>

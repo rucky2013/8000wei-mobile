@@ -44,7 +44,7 @@
     </ul>
     <ul>
       <li>
-        <a class="item-content" v-link="{ path: '/user/profile', replace: true}">
+        <a class="item-content powered">
         <div class="item-media"><span class="icon icon-star"></sapn></div>
         <div class="item-inner">
           <div class="item-title"><i>Powered by 8000wei.com ©2016 </i></div>
@@ -54,8 +54,8 @@
     </ul>
     <div class="content-block">
     <div class="row">
-      <div class="col-50"><a href="#" class="button button-big button-fill button-success">注册</a></div>
-      <div class="col-50"><a href="#" class="button button-big button-fill button-success">登录</a></div>
+      <div class="col-50"><a v-link="{ path: '/person/enroll', replace: true}" class="button button-big button-fill button-success">注册</a></div>
+      <div class="col-50"><a v-link="{ path: '/person/login', replace: true}" class="button button-big button-fill button-success">登录</a></div>
     </div>
   </div>
   
@@ -155,5 +155,9 @@ export default {
 .user-list li {
   margin-top: .7rem;
   height: inherit;
+}
+.powered {
+  font-size: 1em;
+  color:gray;
 }
 </style>
