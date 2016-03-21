@@ -13,30 +13,45 @@
     <a href="#tab3" class="tab-link button">成功案例</a>
     <a href="#tab4" class="tab-link button">创业故事</a>
   </div>
-  <div class="content-block">
+
     <div class="tabs">
       <div id="tab1" class="tab active">
-        <div class="content-block">
-          <p>This is tab 1 content</p>
+        <div class="list-block myhome-msg">
+          <ul class="list-container myhome-msg">
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+          </ul>
         </div>
       </div>
       <div id="tab2" class="tab">
-        <div class="content-block">
-          <p>This is tab 2 content</p>
-        </div>
+        <div class="list-block">
+          <ul class="list-container myhome-msg">
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+          </ul>
+      </div>
       </div>
       <div id="tab3" class="tab">
-        <div class="content-block">
-          <p>This is tab 3 content</p>
-        </div>
+        <div class="list-block">
+          <ul class="list-container myhome-msg">
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+          </ul>
+      </div>
       </div>
       <div id="tab4" class="tab">
-        <div class="content-block">
-          <p>This is tab 4 content</p>
-        </div>
+        <div class="list-block">
+          <ul class="list-container myhome-msg">
+            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+          </ul>
       </div>
     </div>
-  </div>
+
 </template>
 
 <script>

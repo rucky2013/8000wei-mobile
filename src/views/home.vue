@@ -19,6 +19,7 @@
       更多任务
     </btn>
   </v-content>
+  <p>{{$route.params.userId}}</p>
   <div class="card-container">
     <v-card-container v-for="task in tasks | orderBy 'created' -1"
     :style="{backgroundColor: task.status === '1' ? 'white': 'rgb(224, 224, 224)' }">

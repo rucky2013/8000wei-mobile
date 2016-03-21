@@ -1,52 +1,34 @@
 <template>
-	<header class="bar bar-nav">
+
+  <header class="bar bar-nav">
     <a class="button button-link button-nav pull-left">
     </a>
     <h1 class="title">课程中心</h1>
-   </header>
-	<v-tabs type="tab" class-name="article-tabs" >
-    <v-tab name="timer-tasks" title="在线课程" status="active"
-    action="refreshAll" distance="55" v-pull-to-refresh>
-      <v-layer></v-layer>
-      <div class="allTasks" v-link="{ path: '/course/course_show', replace: true}">
-          <v-card-container>
-            <card type="header">香干肉片</card>
-            <card type="content">
-              <card type="content-inner">
-              香干肉片....
-              </card>
-            </card>
-          </v-card-container>
-      </div>
-    </v-tab>
-    <v-tab name="common-tasks" title="线下课程"
-    action="refreshMine" distance="55" v-pull-to-refresh>
-      <v-layer></v-layer>
-      <div class="myTasks">
-          <v-card-container v-for="task in tasks | orderBy 'id' -1">
-            <card type="header">{{task.title}}</card>
-            <card type="content">
-              <card type="content-inner">
-              {{task.content}}
-              </card>
-            </card>
-          </v-card-container>
-      </div>
-    </v-tab>
-  </v-tabs>
+  </header>
+  <div class="content infinite-scroll">
+  <div class="list-block media-list">
+    <ul>
+      <li v-for="task in tasks | orderBy 'id' +1" v-link="{ name: 'course_show', params: { titlel: task.title }}" class="course-wrap">
+      <a href="#" class="item-link item-content">
+         <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+           <div class="item-inner">
+            <div class="item-title-row">
+             <div class="item-title">{{task.title}}</div>
+             <div class="item-after">$15</div>
+            </div>
+            <div class="item-text">{{task.content}}</div>
+          </div>
+           </a>
+      </li>
+    </ul>
+  </div>
+</div>
 </template>
 
 <script>
 import VBar from '../components/Bar'
 import VButton from '../components/Button'
-import VIcon from '../components/Iconfont'
-import VTabs from '../components/Tabs'
-import VTab from '../components/Tab'
-import VLayer from '../components/PullToRefreshLayer'
-import VCardContainer from '../components/Card'
-import Card from '../components/CardItem'
 import $ from 'zepto'
-
 export default {
   ready () {
     $.init()
@@ -58,7 +40,32 @@ export default {
         {
           id: 1,
           title: '香干牛肉',
-          content: '这里是第1个card，下拉刷新会出现第2个card'
+          content: '香干牛肉香干牛肉香干牛肉香干牛肉香干牛肉香干牛肉香干牛肉'
+        },
+        {
+          id: 2,
+          title: '水煮肉片',
+          content: '香干牛肉香干牛肉香干牛肉香干牛肉'
+        },
+        {
+          id: 3,
+          title: '水煮肉片',
+          content: '香干牛肉香干牛肉香干牛肉香干牛肉'
+        },
+        {
+          id: 4,
+          title: '水煮肉片',
+          content: '香干牛肉香干牛肉香干牛肉香干牛肉'
+        },
+        {
+          id: 5,
+          title: '水煮肉片',
+          content: '香干牛肉香干牛肉香干牛肉香干牛肉'
+        },
+        {
+          id: 6,
+          title: '水煮肉片',
+          content: '香干牛肉香干牛肉香干牛肉香干牛肉'
         }
       ]
     }
@@ -69,54 +76,10 @@ export default {
     }
   },
   methods: {
-    openPanel () {
-      $.openPanel('#panel-demo')
-    },
-    refreshAll () {
-      $.showIndicator()
-      setTimeout(function () {
-        console.log('refreshAll')
-        var cardNumber = $(this.$el).find('.card').length
-        var cardHTML = '<div class="card">' +
-          '<div class="card-header">card' + cardNumber + '</div>' +
-          '<div class="card-content">' +
-          '<div class="card-content-inner">' +
-          '这里是第' + cardNumber + '个card，下拉刷新会出现第' + (cardNumber + 1) + '个card。' +
-          '</div>' +
-          '</div>' +
-          '</div>'
-        $(this.$el).find('.allTasks').prepend(cardHTML)
-        // 加载完毕需要重置
-        $.pullToRefreshDone('.pull-to-refresh-content')
-        $.hideIndicator()
-      }.bind(this), 1500)
-    },
-    refreshMine () {
-      $.showIndicator()
-      setTimeout(function () {
-        console.log('refreshMine')
-        let num = this.length + 1
-        let title = `card${num}`
-        let content = `这里是第${num}个card，下拉刷新会出现第${num + 1}个card。`
-        this.tasks.push({
-          id: num,
-          title: title,
-          content: content
-        })
-        $.pullToRefreshDone('.pull-to-refresh-content')
-        $.hideIndicator()
-      }.bind(this), 1500)
-    }
   },
   components: {
     VBar,
-    VButton,
-    VIcon,
-    VTabs,
-    VTab,
-    VLayer,
-    VCardContainer,
-    Card
+    VButton
   }
 }
 </script>
@@ -137,5 +100,9 @@ export default {
 }
 #common-tasks, #timer-tasks {
   top: 2rem;
+}
+.course-wrap .item-text{
+  color: gray;
+  font-size: 0.7em;
 }
 </style>

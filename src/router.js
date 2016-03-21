@@ -20,11 +20,13 @@ import Course_play from './views/course/course_play'
 import Luntan from './views/course/luntan'
 import Login from './views/person/login'
 import Enroll from './views/person/enroll'
+import Content_show from './views/message/content_show'
 import $ from 'zepto'
 
 export default function (router) {
   router.map({
-    '/home': {
+    '/home/:userId': {
+      name: 'home',
       component: Home
     },
     '/home/rank': {
@@ -51,11 +53,11 @@ export default function (router) {
     '/user/profit': {
       component: Profit
     },
+    'more': {
+      component: More
+    },
     '/user/profit/record': {
       component: ProfitRecord
-    },
-    '/more': {
-      component: More
     },
     '/more/feedback': {
       component: Feedback
@@ -75,7 +77,8 @@ export default function (router) {
     '/myhome/about': {
       component: About
     },
-    '/course/course_show': {
+    '/course/course_show/:titlel': {
+      name: 'course_show',
       component: Course_show
     },
     '/course/course_play': {
@@ -89,6 +92,10 @@ export default function (router) {
     },
     '/person/enroll': {
       component: Enroll
+    },
+    '/message/content_show/:title': {
+      name: 'content_show',
+      component: Content_show
     }
   })
   router.redirect({

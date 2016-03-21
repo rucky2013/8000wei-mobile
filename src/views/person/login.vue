@@ -14,7 +14,7 @@
           <div class="item-inner">
             <div class="item-title label">邮箱</div>
             <div class="item-input">
-              <input type="email" placeholder="E-mail">
+              <input type="text" placeholder="E-mail">
             </div>
           </div>
         </div>
@@ -37,4 +37,5 @@
     </div>
   </div>
 </div>
+
 </template>

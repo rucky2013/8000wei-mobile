@@ -1,7 +1,5 @@
 <template>
-<div>
-<div class="content home" action="refresh" distance="55" v-pull-to-refresh>
-  <v-layer></v-layer>
+<div class="content">
   <slider :imgs="slider.imgs" :config="slider.config"></slider>
   <v-bar
     type="tab"
@@ -11,49 +9,32 @@
 <!-- 首页资讯 -->
 
  <div class="buttons-tab">
-    <a href="#tab1" class="tab-link active button">最新资讯</a>
-    <a href="#tab2" class="tab-link button" v-link="{ path: '/message', replace: true}">更多资讯</a>
-  </div>
-  <div>
-      <div id="tab1" class="tab active">
-        <div class="list-block">
-          <ul class="list-container myhome-msg">
-            <li class="item-content"><a href="">如何从大数据中洞察餐饮市场变化？</a></li>
-            <li class="item-content"><a href="">如何从大数据中洞察餐饮市场变化？</a></li>
-            <li class="item-content"><a href="">如何从大数据中洞察餐饮市场变化？</a></li>
-          </ul>
-        </div>
-      </div>
+    <a href="#tab1" class="tab-link active button">最新</a>
   </div>
 
-  <div class="card-container">
-    <v-card-container v-for="task in tasks | orderBy 'created' -1"
-    :style="{backgroundColor: task.status === '1' ? 'white': 'rgb(224, 224, 224)' }" v-link="{ path: '/course/course_show', replace: true}">
-      <card type="content">
-        <list type="media">
-            <li class="item-content">
-              <item type="media">
-                <img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="80">
-              </item>
-              <item type="inner">
-                <item type="title-row">
-                  <item type="text">{{task.title}}</item>
-                  <item type="text">{{task.created | date 2}}</item>
-                </item>
-              </item>
-            </li>
-        </list>
-      </card>
-      <card type="footer" >
-        <div style="color:gray">
-        教师：{{task.advertiser}}
-        <span style="margin-left: 1rem;padding: .1rem;border: 1px solid #929292;" :style="{color: task.status === '1' ? 'green': 'gray' }">{{task.status === '0' ? '已学' : '未学'}}</span>
-        </div>
-        <span :style="{color: task.status === '1' ? 'orange': 'gray',fontWeight:'bold'}">{{task.read_profit}} 元</span>
-      </card>
-    </v-card-container>
+  <div id="tab1" class="tab active">
+    <div class="list-block media-list myhome-msg">
+      <ul class="list-container myhome-msg">
+        <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+         <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+      </ul>
+      <ul>
+      <li v-for="task in tasks | orderBy 'id' +1" v-link="{ name: 'course_show', params: { titlel: task.title }}" class="course-wrap">
+      <a href="#" class="item-link item-content">
+         <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 4rem;'></div>
+           <div class="item-inner">
+            <div class="item-title-row">
+             <div class="item-title">{{task.title}}</div>
+             <div class="item-after">$15</div>
+            </div>
+            <div class="item-text">{{task.content}}</div>
+          </div>
+           </a>
+      </li>
+    </ul>
+    </div>
   </div>
-</div>
+
 </div>
 </template>
 
@@ -80,15 +61,15 @@ export default {
       slider: {
         imgs: [
           {
-            src: '//www.anstnd.cn/banner1_.jpg',
+            src: 'http://www.anstnd.cn/banner1_.jpg',
             target: 'www.baidu.com'
           },
           {
-            src: '//www.anstnd.cn/banner2_.jpg',
+            src: 'http://www.anstnd.cn/banner2_.jpg',
             target: 'www.baidu.com'
           },
           {
-            src: '//www.anstnd.cn/banner3_.jpg',
+            src: 'http://www.anstnd.cn/banner3_.jpg',
             target: 'www.baidu.com'
           }
         ],
@@ -117,7 +98,23 @@ export default {
         activeClass: 'inactive',
         className: 'home-bar'
       },
-      tasks: []
+      tasks: [
+        {
+          id: 1,
+          title: '香干牛肉',
+          content: '香干牛肉香干牛肉香干牛肉香干牛肉香干牛肉香干牛肉香干牛肉'
+        },
+        {
+          id: 2,
+          title: '水煮肉片',
+          content: '香干牛肉香干牛肉香干牛肉香干牛肉'
+        },
+        {
+          id: 3,
+          title: '水煮肉片',
+          content: '香干牛肉香干牛肉香干牛肉香干牛肉'
+        }
+      ]
     }
   },
   computed: {
@@ -126,21 +123,6 @@ export default {
     }
   },
   methods: {
-    refresh () {
-      setTimeout(function () {
-        let num = this.length + 1
-        let title = `标题${num}`
-        let adv = `abc${num}`
-        let point = 100 + num - 1
-        this.tasks.push({
-          id: num,
-          title: title,
-          adv: adv,
-          point: point
-        })
-        $.pullToRefreshDone('.pull-to-refresh-content')
-      }.bind(this), 1500)
-    }
   },
   components: {
     Slider,
@@ -155,12 +137,6 @@ export default {
     Btn
   },
   route: {
-    data ({to, next}) {
-      return this.$http.get('tasks.json')
-      .then(({data: {code, message, data}})=>{
-        this.tasks = data
-      })
-    },
     activate ({to, next}) {
       console.log('route home activate')
       if ($.slider !== undefined) {
@@ -187,14 +163,15 @@ export default {
   height: 3.6rem;
   background-color: white;
 }
-.myhome-tab{
-  margin-top: 0px;
-}
 .myhome-msg{
-  margin:0,0,0,0;
+  list-style-type: disc;
+}
+.myhome-msg li{
+  margin-bottom: 1px slider #ededed;
 }
 .myhome-msg a{
+  display: block;;
   color: black;
-  font-size: 0.8em;
+  font-size: 0.8em
 }
 </style>
