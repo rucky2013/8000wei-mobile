@@ -1,0 +1,64 @@
+{
+  "name": "baqianwei_mobile",
+  "version": "0.0.1",
+  "dependencies": {
+    "vue": {
+      "version": "1.0.17",
+      "from": "vue@>=1.0.15 <2.0.0",
+      "resolved": "https://registry.npm.taobao.org/vue/download/vue-1.0.17.tgz",
+      "dependencies": {
+        "envify": {
+          "version": "3.4.0",
+          "from": "envify@>=3.4.0 <4.0.0",
+          "resolved": "https://registry.npm.taobao.org/envify/download/envify-3.4.0.tgz",
+          "dependencies": {
+            "through": {
+              "version": "2.3.8",
+              "from": "through@>=2.3.4 <2.4.0",
+              "resolved": "https://registry.npm.taobao.org/through/download/through-2.3.8.tgz"
+            },
+            "jstransform": {
+              "version": "10.1.0",
+              "from": "jstransform@>=10.0.1 <11.0.0",
+              "resolved": "https://registry.npm.taobao.org/jstransform/download/jstransform-10.1.0.tgz",
+              "dependencies": {
+                "base62": {
+                  "version": "0.1.1",
+                  "from": "base62@0.1.1",
+                  "resolved": "https://registry.npm.taobao.org/base62/download/base62-0.1.1.tgz"
+                },
+                "esprima-fb": {
+                  "version": "13001.1001.0-dev-harmony-fb",
+                  "from": "esprima-fb@13001.1001.0-dev-harmony-fb",
+                  "resolved": "https://registry.npm.taobao.org/esprima-fb/download/esprima-fb-13001.1001.0-dev-harmony-fb.tgz"
+                },
+                "source-map": {
+                  "version": "0.1.31",
+                  "from": "source-map@0.1.31",
+                  "resolved": "https://registry.npm.taobao.org/source-map/download/source-map-0.1.31.tgz",
+                  "dependencies": {
+                    "amdefine": {
+                      "version": "1.0.0",
+                      "from": "amdefine@>=0.0.4",
+                      "resolved": "https://registry.npm.taobao.org/amdefine/download/amdefine-1.0.0.tgz"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "vue-resource": {
+      "version": "0.6.1",
+      "from": "vue-resource@>=0.6.1 <0.7.0",
+      "resolved": "https://registry.npm.taobao.org/vue-resource/download/vue-resource-0.6.1.tgz"
+    },
+    "vue-router": {
+      "version": "0.7.11",
+      "from": "vue-router@>=0.7.9 <0.8.0",
+      "resolved": "https://registry.npm.taobao.org/vue-router/download/vue-router-0.7.11.tgz"
+    }
+  }
+}
