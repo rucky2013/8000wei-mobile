@@ -21,6 +21,7 @@ import Luntan from './views/course/luntan'
 import Login from './views/person/login'
 import Enroll from './views/person/enroll'
 import Content_show from './views/message/content_show'
+import Mycourse from './views/person/mycourse'
 import $ from 'zepto'
 
 export default function (router) {
@@ -77,11 +78,12 @@ export default function (router) {
     '/myhome/about': {
       component: About
     },
-    '/course/course_show/:titlel': {
+    '/course/course_show/:titlel/post/:cu_content': {
       name: 'course_show',
       component: Course_show
     },
     '/course/course_play': {
+      name: 'course_play',
       component: Course_play
     },
     '/course/luntan': {
@@ -96,12 +98,15 @@ export default function (router) {
     '/message/content_show/:title': {
       name: 'content_show',
       component: Content_show
+    },
+    '/person/mycourse/:myid': {
+      name: 'mycourse',
+      component: Mycourse
     }
   })
   router.redirect({
     '/': '/myhome'
   })
-
   router.beforeEach(function ({to, from, next}) {
     let toPath = to.path
     let fromPath = from.path

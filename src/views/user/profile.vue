@@ -33,26 +33,6 @@
       <li>
         <div class="item-content">
             <div class="item-inner">
-                <div class="item-title label">真实姓名</div>
-                <div class="item-input">
-                    <input id="name" type="text" name="name" placeholder="请输入真实姓名" value="一二三">
-                </div>
-            </div>
-        </div>
-      </li>
-      <li>
-        <div class="item-content">
-            <div class="item-inner">
-                <div class="item-title label">微信号</div>
-                <div class="item-input">
-                    <input id="name" type="text" name="name" placeholder="请输入微信号" value="hhhh">
-                </div>
-            </div>
-        </div>
-      </li>
-      <li>
-        <div class="item-content">
-            <div class="item-inner">
                 <div class="item-title label">性别</div>
                 <div class="item-input">
                     <select name="sex">
