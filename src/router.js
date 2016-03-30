@@ -76,6 +76,7 @@ export default function (router) {
       component: Myhome
     },
     '/myhome/about': {
+      name: 'about',
       component: About
     },
     '/course/course_show/:titlel/post/:cu_content': {
