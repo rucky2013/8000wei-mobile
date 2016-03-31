@@ -8,7 +8,7 @@
   </header>
 
 <div class="content">
-
+ 
   <div class="list-block">
     <ul>
       <li class="item-content">
@@ -19,13 +19,14 @@
         </div>
       </li>
       <li class="item-content">
-        <div class="item-media"><i class="icon icon-f7"></i></div>
+
         <div class="content-padded">
         <div class="item-inner">
         <div class="item-title button button-fill">简介:</div>
         </div>
-            <p>我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白
-            我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白,我的左右两边有留白</p>
+          <p class="content-padded">
+            {{$route.params.cu_content}}
+          </p>
         </div>
       </li>
     </ul>
@@ -34,17 +35,10 @@
   <div class="list-group">
       <ul>
         <li class="list-title button button-fill">课时列表：</li>
-        <li v-link="{path: '/course/course_play', replace: true}">
+        <li v-link="{name: 'course_play'}">
           <div class="item-content">
             <div class="item-inner">
               <div class="item-title">课时1</div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content">
-            <div class="item-inner">
-              <div class="item-title" v-link="{path: '/course/course_play', replace: true}">课时2</div>
             </div>
           </div>
         </li>

@@ -18,36 +18,28 @@
       <div id="tab1" class="tab active">
         <div class="list-block myhome-msg">
           <ul class="list-container myhome-msg">
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-for="msg in msgs | orderBy 'id' +1" v-link="{ name: 'content_show', params: {title: msg.title}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
           </ul>
         </div>
       </div>
       <div id="tab2" class="tab">
         <div class="list-block">
           <ul class="list-container myhome-msg">
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-for="msg in msgs | orderBy 'id' -1" v-link="{ name: 'content_show', params: {title: msg.title}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
           </ul>
       </div>
       </div>
       <div id="tab3" class="tab">
         <div class="list-block">
           <ul class="list-container myhome-msg">
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-for="msg in msgs | orderBy 'id' +2" v-link="{ name: 'content_show', params: {title: msg.title}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
           </ul>
       </div>
       </div>
       <div id="tab4" class="tab">
         <div class="list-block">
           <ul class="list-container myhome-msg">
-            <li class="item-content" v-link="{ name: 'content_show', params: {title: '2016年小吃创业趋势与指导'}}" style="cursor:pointer"><a href="">2016年小吃创业趋势与指导</a></li>
+            <li class="item-content" v-for="msg in msgs | orderBy 'id' -1" v-link="{ name: 'content_show', params: {title: msg.title}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
           </ul>
       </div>
     </div>
@@ -86,7 +78,41 @@ export default {
         config: {
           autoplay: 1200
         }
-      }
+      },
+      msgs: [
+        {
+          id: 1,
+          title: '餐饮业如何做好节假日营销'
+        },
+        {
+          id: 2,
+          title: '餐饮老板注意了！中式连锁快餐关店潮来袭'
+        },
+        {
+          id: 3,
+          title: '拉面馆创业造就一个农民的幸福生活'
+        },
+        {
+          id: 4,
+          title: '杭州凡老头小吃店，炒螺蛳炒出两辆宝马两套房'
+        },
+        {
+          id: 5,
+          title: '冰芬茶语甜品店 美味不断诱惑不断'
+        },
+        {
+          id: 6,
+          title: '十平米饮品小店 日卖五百杯'
+        },
+        {
+          id: 7,
+          title: '餐饮店老板分享的宝贵经验'
+        },
+        {
+          id: 8,
+          title: '十几平米的鱼丸店月入十万的秘密'
+        }
+      ]
     }
   },
   components: {

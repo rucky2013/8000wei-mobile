@@ -18,15 +18,15 @@
     </div>
   </div>
   <nav class="bar bar-tab user-tab">
-    <a class="tab-item">
+    <a class="tab-item" v-link="{ name: 'mycourse', params: {myid: '收藏课程'}}">
       <span class="icon icon-app"></span>
-      <span class="tab-label">在学课程</span>
-    </a>
-    <a class="tab-item">
-      <span class="icon icon-star"></span>
       <span class="tab-label">收藏课程</span>
     </a>
-    <a class="tab-item" v-link="">
+    <a class="tab-item" v-link="{path: '/myhome/about', replace: true}">
+      <span class="icon icon-star"></span>
+      <span class="tab-label">关于</span>
+    </a>
+    <a class="tab-item" v-link="{ name: 'mycourse', params: {myid: '下载App'}}">
       <span class="icon icon-download"></span>
       <span class="tab-label">下载App</span>
     </a>
