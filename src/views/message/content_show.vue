@@ -4,7 +4,7 @@
     <a class="button button-link button-nav pull-left" v-link="{path: '/message', replace: true}">
     <span class="icon icon-left"></span>
     </a>
-    <h1 class="title msg-title">{{$route.params.title}}</h1>
+    <h1 class="title msg-title">{{$route.params.msg_id}}</h1>
  </header>
 <div class="content">
 	<div class="content-padded">

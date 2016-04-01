@@ -18,28 +18,28 @@
       <div id="tab1" class="tab active">
         <div class="list-block myhome-msg">
           <ul class="list-container myhome-msg">
-            <li class="item-content" v-for="msg in msgs | orderBy 'id' +1" v-link="{ name: 'content_show', params: {title: msg.title}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
+            <li class="item-content" v-for="msg in msgs1 | orderBy 'id' +1" v-link="{ name: 'content_show', params: {msg_id: msg.id}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
           </ul>
         </div>
       </div>
       <div id="tab2" class="tab">
         <div class="list-block">
           <ul class="list-container myhome-msg">
-            <li class="item-content" v-for="msg in msgs | orderBy 'id' -1" v-link="{ name: 'content_show', params: {title: msg.title}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
+            <li class="item-content" v-for="msg in msgs2 | orderBy 'id' -1" v-link="{ name: 'content_show', params: {msg_id: msg.id}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
           </ul>
       </div>
       </div>
       <div id="tab3" class="tab">
         <div class="list-block">
           <ul class="list-container myhome-msg">
-            <li class="item-content" v-for="msg in msgs | orderBy 'id' +2" v-link="{ name: 'content_show', params: {title: msg.title}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
+            <li class="item-content" v-for="msg in msgs3 | orderBy 'id' +2" v-link="{ name: 'content_show', params: {msg_id: msg.id}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
           </ul>
       </div>
       </div>
       <div id="tab4" class="tab">
         <div class="list-block">
           <ul class="list-container myhome-msg">
-            <li class="item-content" v-for="msg in msgs | orderBy 'id' -1" v-link="{ name: 'content_show', params: {title: msg.title}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
+            <li class="item-content" v-for="msg in msgs4 | orderBy 'id' -1" v-link="{ name: 'content_show', params: {msg_id: msg.id}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
           </ul>
       </div>
     </div>
@@ -79,40 +79,10 @@ export default {
           autoplay: 1200
         }
       },
-      msgs: [
-        {
-          id: 1,
-          title: '餐饮业如何做好节假日营销'
-        },
-        {
-          id: 2,
-          title: '餐饮老板注意了！中式连锁快餐关店潮来袭'
-        },
-        {
-          id: 3,
-          title: '拉面馆创业造就一个农民的幸福生活'
-        },
-        {
-          id: 4,
-          title: '杭州凡老头小吃店，炒螺蛳炒出两辆宝马两套房'
-        },
-        {
-          id: 5,
-          title: '冰芬茶语甜品店 美味不断诱惑不断'
-        },
-        {
-          id: 6,
-          title: '十平米饮品小店 日卖五百杯'
-        },
-        {
-          id: 7,
-          title: '餐饮店老板分享的宝贵经验'
-        },
-        {
-          id: 8,
-          title: '十几平米的鱼丸店月入十万的秘密'
-        }
-      ]
+      msgs1: [],
+      msgs2: [],
+      msgs3: [],
+      msgs4: []
     }
   },
   components: {
@@ -125,6 +95,26 @@ export default {
         $.slider.startAutoplay()
       }
       next()
+    },
+    data ({to, next}) {
+      let ms1 = this.$http.get('http://8000wei.com:8000/v1/article/category/4/latest/10')
+      .then(({data: {code, success, result}})=>{
+        this.msgs1 = result
+      })
+      let ms2 = this.$http.get('http://8000wei.com:8000/v1/article/category/5/latest/6')
+      .then(({data: {code, success, result}})=>{
+        this.msgs2 = result
+      })
+      let ms3 = this.$http.get('http://8000wei.com:8000/v1/article/category/7/latest/6')
+      .then(({data: {code, success, result}})=>{
+        this.msgs3 = result
+      })
+      let ms4 = this.$http.get('http://8000wei.com:8000/v1/article/category/6/latest/6')
+      .then(({data: {code, success, result}})=>{
+        this.msgs4 = result
+      })
+      let arr = [ms1, ms2, ms3, ms4]
+      return arr
     }
   }
 }

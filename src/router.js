@@ -79,7 +79,7 @@ export default function (router) {
       name: 'about',
       component: About
     },
-    '/course/course_show/:titlel/post/:cu_content': {
+    '/course/course_show/:cu_id': {
       name: 'course_show',
       component: Course_show
     },
@@ -96,7 +96,7 @@ export default function (router) {
     '/person/enroll': {
       component: Enroll
     },
-    '/message/content_show/:title': {
+    '/message/content_show/:msg_id': {
       name: 'content_show',
       component: Content_show
     },

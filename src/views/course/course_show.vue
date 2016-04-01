@@ -25,7 +25,7 @@
         <div class="item-title button button-fill">简介:</div>
         </div>
           <p class="content-padded">
-            {{$route.params.cu_content}}
+            {{$route.params.cu_id}}
           </p>
         </div>
       </li>
