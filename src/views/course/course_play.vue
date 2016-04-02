@@ -1,16 +1,15 @@
 <template>
 
 	<header class="bar bar-nav">
-    <a class="button button-link button-nav pull-left" v-link="{path: '/course', replace: true}">
+    <a class="button button-link button-nav pull-left" v-link="{path: '/course'}">
     <span class="icon icon-left"></span>
     </a>
-    <h1 class="title">播放中</h1>
   </header>
   <div class="content">
    <video id="video_1" class="video-js vjs-default-skin" controls preload="auto" poster="http://www.anstnd.cn/banner1_.jpg"
       data-setup="{}">
     <!-- 三种播放格式-->
-    <source src="http://7xpk3a.com2.z0.glb.qiniucdn.com/1453120953uoxuex.mp4" type='video/mp4' />
+    <source src={{"http://7xpk3a.com2.z0.glb.qiniucdn.com/"+$route.params.cu_url}} type='video/mp4' />
     <!-- http://vjs.zencdn.net/v/oceans.mp4 -->
     <!-- 字幕 -->
     <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
@@ -25,6 +24,9 @@ import $ from 'zepto'
 export default {
   ready () {
     $.init()
+    window.location.reload()
+  },
+  methods: {
   }
 }
 </script>
@@ -35,4 +37,3 @@ export default {
   margin-top: 20px
 }
 </style>
-

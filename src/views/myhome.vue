@@ -26,7 +26,7 @@
              <div class="item-title">{{task.title}}</div>
              <div class="item-after">￥{{task.price}}</div>
             </div>
-            <div class="item-text">{{task.about}}</div>
+            <div class="item-text">{{task.title}}</div>
           </div>
            </a>
       </li>

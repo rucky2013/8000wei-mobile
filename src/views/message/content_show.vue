@@ -4,12 +4,14 @@
     <a class="button button-link button-nav pull-left" v-link="{path: '/message', replace: true}">
     <span class="icon icon-left"></span>
     </a>
-    <h1 class="title msg-title">{{$route.params.msg_id}}</h1>
+    <h1 class="title msg-title">{{ctshow.title}}</h1>
  </header>
+
 <div class="content">
-	<div class="content-padded">
-  		<p>八千味小吃餐饮培训是国内领先的小吃创业辅导品牌，旨在为小吃行业创业人员提供课程培训及相关延伸服务，致力于打造以小吃创业资讯、教学培训、经营管理、分享交流为一体的小吃创业辅导平台，助力创业人才在小吃餐饮行业成功创业。</p>
+	<div class="content-padded" v-html='ctshow.body'>
+  		
 	</div>
+
 </div>
 
 </template>
@@ -19,6 +21,21 @@ import $ from 'zepto'
 export default {
   ready () {
     $.init()
+  },
+  data () {
+    return {
+      msg_id: '',
+      ctshow: []
+    }
+  },
+  route: {
+    data (transition) {
+      let msg_id = transition.to.params.msg_id
+      return this.$http.get('http://8000wei.com:8000/v1/article/' + msg_id)
+      .then(({data: {code, success, result}})=>{
+        this.ctshow = result
+      })
+    }
   }
 }
 </script>

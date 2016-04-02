@@ -8,7 +8,7 @@
   <div class="content infinite-scroll">
   <div class="list-block media-list">
     <ul>
-      <li v-for="task in tasks | orderBy 'id' -1" v-link="{ name: 'course_show', params: { cu_content: task.content,titlel: task.title}}" class="course-wrap">
+      <li v-for="task in tasks | orderBy 'id' -1" v-link="{ name: 'course_show', params: { cu_id: task.id}}" class="course-wrap">
       <a href="#" class="item-link item-content">
          <div class="item-media"><img src={{"http://www.8000wei.com/files/"+task.middlePicture.replace("public:","")}} style='width: 4.3rem;'></div>
            <div class="item-inner">
@@ -16,7 +16,7 @@
              <div class="item-title">{{task.title}}</div>
              <div class="item-after">￥{{task.price}}</div>
             </div>
-            <div class="item-text">{{task.about}</div>
+            <div class="item-text">{{task.title}}</div>
           </div>
            </a>
       </li>

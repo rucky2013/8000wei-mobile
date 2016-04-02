@@ -6,7 +6,7 @@
    </header>
 	
 	<div class="content">
-   	<slider :imgs="slider.imgs" :config="slider.config"></slider>
+   	<mslider :imgs="mslider.imgs" :config="mslider.config"></mslider>
     <div class="buttons-tab fixed-tab" data-offset="44">
     <a href="#tab1" class="tab-link active button">最新</a>
     <a href="#tab2" class="tab-link button">行业试点</a>
@@ -48,7 +48,7 @@
 
 <script>
 import $ from 'zepto'
-import Slider from '../components/Slider'
+import Mslider from '../components/Mslider'
 
 export default {
   ready () {
@@ -56,7 +56,7 @@ export default {
   },
   data () {
     return {
-      slider: {
+      mslider: {
         imgs: [
           {
             src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
@@ -86,13 +86,13 @@ export default {
     }
   },
   components: {
-    Slider
+    Mslider
   },
   route: {
     activate ({to, next}) {
-      if ($.slider !== undefined) {
-        $.slider.stopAutoplay()
-        $.slider.startAutoplay()
+      if ($.mslider !== undefined) {
+        $.mslider.stopAutoplay()
+        $.mslider.startAutoplay()
       }
       next()
     },

@@ -64,6 +64,7 @@ export default function (router) {
       component: Feedback
     },
     '/course': {
+      name: 'course',
       component: Course
     },
     '/message': {
@@ -83,7 +84,7 @@ export default function (router) {
       name: 'course_show',
       component: Course_show
     },
-    '/course/course_play': {
+    '/course/course_play/:cu_url': {
       name: 'course_play',
       component: Course_play
     },
