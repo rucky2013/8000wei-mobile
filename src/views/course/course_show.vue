@@ -1,7 +1,7 @@
 <template>
 
 	<header class="bar bar-nav">
-    <a class="button button-link button-nav pull-left" v-link="{path: '/course', replace: true}">
+    <a class="button button-link button-nav pull-left" v-link="{path: '/course'}">
     <span class="icon icon-left"></span>
     </a>
     <h1 class="title">{{cushow.title}}</h1>
@@ -19,13 +19,11 @@
         </div>
       </li>
       <li class="item-content">
-
         <div class="content-padded">
         <div class="item-inner">
         <div class="item-title button button-fill">简介:</div>
         </div>
           <div class="content-padded" v-html='cushow.about'>
-
           </div>
         </div>
       </li>

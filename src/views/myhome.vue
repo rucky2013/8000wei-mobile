@@ -26,7 +26,7 @@
              <div class="item-title">{{task.title}}</div>
              <div class="item-after">￥{{task.price}}</div>
             </div>
-            <div class="item-text">{{task.title}}</div>
+            <div class="item-text">目标：{{task.goals.replace("|","").replace("|","")}}</div>
           </div>
            </a>
       </li>
@@ -59,15 +59,15 @@ export default {
         imgs: [
           {
             src: 'http://www.anstnd.cn/banner1_.jpg',
-            target: 'www.baidu.com'
+            target: '#'
           },
           {
             src: 'http://www.anstnd.cn/banner2_.jpg',
-            target: 'www.baidu.com'
+            target: '#'
           },
           {
             src: 'http://www.anstnd.cn/banner3_.jpg',
-            target: 'www.baidu.com'
+            target: '#'
           }
         ],
         config: {
@@ -77,11 +77,6 @@ export default {
       bar: {
         items: [
           {
-            path: '/message',
-            icon: 'clock',
-            label: '创业'
-          },
-          {
             path: '/course/luntan',
             icon: 'friends',
             label: '论坛'
@@ -90,6 +85,11 @@ export default {
             path: '/myhome/about',
             icon: 'phone',
             label: '关于'
+          },
+          {
+            path: '/person/mycourse/%E4%B8%8B%E8%BD%BDApp',
+            icon: 'download',
+            label: '下载APP'
           }
         ],
         activeClass: 'inactive',

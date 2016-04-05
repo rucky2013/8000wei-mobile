@@ -24,7 +24,6 @@ import $ from 'zepto'
 export default {
   ready () {
     $.init()
-    window.location.reload()
   },
   methods: {
   }

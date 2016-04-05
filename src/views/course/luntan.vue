@@ -3,7 +3,7 @@
     	<a class="button button-link button-nav pull-left" v-link="{path: '/myhome', replace: true}">
     		<span class="icon icon-left"></span>
     	</a>
-    	<h1 class="title">论坛</h1>
+    	<h1 class="title">论 坛</h1>
   	</header>
 
    <div class="content">

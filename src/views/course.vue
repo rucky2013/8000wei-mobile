@@ -16,7 +16,7 @@
              <div class="item-title">{{task.title}}</div>
              <div class="item-after">￥{{task.price}}</div>
             </div>
-            <div class="item-text">{{task.title}}</div>
+            <div class="item-text">目标：{{task.goals.replace("|","").replace("|","")}}</div>
           </div>
            </a>
       </li>
