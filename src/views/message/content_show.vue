@@ -43,4 +43,11 @@ export default {
   .msg-title {
     font-size: .8em;
   }
+  .content {
+    box-sizing:border-box;
+    width: 100%
+  }
+  img {
+    width: 95%
+  }
 </style>

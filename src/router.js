@@ -11,6 +11,7 @@ import Enroll from './views/person/enroll'
 import Content_show from './views/message/content_show'
 import Mycourse from './views/person/mycourse'
 import Collect from './views/person/collect'
+import Profile from './views/person/profile'
 import $ from 'zepto'
 
 export default function (router) {
@@ -60,6 +61,10 @@ export default function (router) {
     '/person/collect': {
       name: 'collect',
       component: Collect
+    },
+    '/person/profile': {
+      name: 'profile',
+      component: Profile
     }
   })
   router.redirect({

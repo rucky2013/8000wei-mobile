@@ -4,7 +4,6 @@
     </a>
     <h1 class="title">资讯中心</h1>
    </header>
-	
 	<div class="content">
    	<mslider :imgs="mslider.imgs" :config="mslider.config"></mslider>
     <div class="buttons-tab fixed-tab" data-offset="44">
@@ -42,6 +41,8 @@
             <li class="item-content" v-for="msg in msgs4 | orderBy 'id' -1" v-link="{ name: 'content_show', params: {msg_id: msg.id}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
           </ul>
       </div>
+    </div>
+    </div>
     </div>
 
 </template>

@@ -18,7 +18,7 @@
   <div class="list-block user-list">
     <ul>
       <li>
-        <a class="item-content item-link" v-link="{ path: '/user/profile', replace: true}">
+        <a class="item-content item-link" v-link="{ path: '/person/profile', replace: true}">
         <div class="item-media"><span class="icon icon-star"></sapn></div>
         <div class="item-inner">
           <div class="item-title">个人资料</div>
