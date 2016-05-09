@@ -19,7 +19,7 @@
   <div class="content-block-title">关注微信公众号</div>
     <div class="card demo-card-header-pic">
       <div valign="bottom" class="card-header color-white no-border no-padding">
-        <img src="../../assets/wechat.jpg" height="500" width="500" class="img_full">
+        <img src="http://www.anstnd.cn/wechat.jpg" class="img_full">
         </div>
     </div>
   </div>

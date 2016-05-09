@@ -12,11 +12,13 @@
   <div class="list-block">
     <ul>
       <li class="item-content">
-        <div class="item-media"><i class="icon icon-f7"></i></div>
+       <!--  <div class="item-media"><i class="icon icon-f7"></i></div>
         <div class="item-inner">
-          <div class="item-title">价格 ：</div>
-          <div class="item-after">￥{{cushow.price}}</div>
-        </div>
+          
+        </div> -->
+        <div class="card-content">
+      <div class="card-content-inner"><img src={{"http://www.8000wei.com/files/"+cushow.largePicture.replace("public:","")}} style='width: 100%'></div>
+    </div>
       </li>
       <li class="item-content">
         <div class="content-padded">
@@ -31,7 +33,7 @@
   </div>
   <div class="list-block contacts-block">
   <div class="list-group">
-      <div class="list-title button button-fill">课时列表：</div>
+      <div class="list-title button button-fill">课时列表 ：</div>
       <ul class="list-content">
           <li class="item-content" v-link="{name: 'course_play', params: {cu_url: culesson.media.qiniu_name + '.mp4'}}" v-for="culesson in culessons">
           <a href="#" class="item-link item-content">

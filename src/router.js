@@ -12,6 +12,7 @@ import Content_show from './views/message/content_show'
 import Mycourse from './views/person/mycourse'
 import Collect from './views/person/collect'
 import Profile from './views/person/profile'
+import Learning from './views/person/learning'
 import $ from 'zepto'
 
 export default function (router) {
@@ -24,9 +25,11 @@ export default function (router) {
       component: Message
     },
     '/person': {
+      name: 'person',
       component: Person
     },
     '/myhome': {
+      name: 'myhome',
       component: Myhome
     },
     '/myhome/about': {
@@ -58,13 +61,17 @@ export default function (router) {
       name: 'mycourse',
       component: Mycourse
     },
-    '/person/collect': {
+    '/person/collect/:idlog': {
       name: 'collect',
       component: Collect
     },
-    '/person/profile': {
+    '/person/profile/:idlog': {
       name: 'profile',
       component: Profile
+    },
+    '/person/learning/:idlog': {
+      name: 'learning',
+      component: Learning
     }
   })
   router.redirect({
@@ -82,7 +89,6 @@ export default function (router) {
     }
     next()
   })
-
   router.afterEach(function ({to}) {
     console.log(`成功浏览到: ${to.path}`)
     $.refreshScroller()

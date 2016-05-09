@@ -16,13 +16,12 @@
     <div id="ta1" class="tab active">
       <div class="list-block media-list">
         <ul>
-          <li v-for="huo in huos | orderBy 'id' -1" v-link="{ name: 'course_show', params: { cu_id: huo.id}}" class="course-wrap">
+          <li v-for="huo in huos | orderBy 'id' +1" v-link="{ name: 'course_show', params: { cu_id: huo.id}}" class="course-wrap">
             <a href="#" class="item-link item-content">
               <div class="item-media"><img src={{"http://www.8000wei.com/files/"+huo.middlePicture.replace("public:","")}} style='width: 4.3rem;'></div>
               <div class="item-inner">
                 <div class="item-title-row">
                   <div class="item-title">{{huo.title}}</div>
-                  <div class="item-after">￥{{huo.price}}</div>
                 </div>
             <div class="item-text">目标：{{huo.goals.replace("|","").replace("|","")}}</div>
               </div>
@@ -40,7 +39,6 @@
               <div class="item-inner">
                 <div class="item-title-row">
                   <div class="item-title">{{mian.title}}</div>
-                  <div class="item-after">￥{{mian.price}}</div>
                 </div>
             <div class="item-text">目标：{{mian.goals.replace("|","").replace("|","")}}</div>
               </div>
@@ -54,11 +52,10 @@
         <ul>
           <li v-for="shao in shaos | orderBy 'id' -1" v-link="{ name: 'course_show', params: { cu_id: shao.id}}" class="course-wrap">
             <a href="#" class="item-link item-content">
-              <div class="item-media"><img src={{"http://www.8000wei.com/files/"+shao.middlePicture.replace("public:","")}} style='width: 4.3rem;'></div>
+              <div class="item-media"><img src={{"http://www.8000wei.com/files/"+shao.smallPicture.replace("public:","")}} style='width: 4.3rem;'></div>
               <div class="item-inner">
                 <div class="item-title-row">
                   <div class="item-title">{{shao.title}}</div>
-                  <div class="item-after">￥{{shao.price}}</div>
                 </div>
             <div class="item-text">目标：{{shao.goals.replace("|","").replace("|","")}}</div>
               </div>
@@ -76,7 +73,6 @@
               <div class="item-inner">
                 <div class="item-title-row">
                   <div class="item-title">{{all.title}}</div>
-                  <div class="item-after">￥{{all.price}}</div>
                 </div>
             <div class="item-text">目标：{{all.goals.replace("|","").replace("|","")}}</div>
               </div>
@@ -119,15 +115,15 @@ export default {
   },
   route: {
     data ({to, next}) {
-      let cu1 = this.$http.get('http://8000wei.com:8000/v1/course/latest/5')
+      let cu1 = this.$http.get('http://8000wei.com:8000/v1/course/category/11/latest/20')
       .then(({data: {code, success, result}})=>{
         this.huos = result
       })
-      let cu2 = this.$http.get('http://8000wei.com:8000/v1/course/latest/4')
+      let cu2 = this.$http.get('http://8000wei.com:8000/v1/course/category/9/latest/20')
       .then(({data: {code, success, result}})=>{
         this.mians = result
       })
-      let cu3 = this.$http.get('http://8000wei.com:8000/v1/course/latest/3')
+      let cu3 = this.$http.get('http://8000wei.com:8000/v1/course/category/7/latest/20')
       .then(({data: {code, success, result}})=>{
         this.shaos = result
       })

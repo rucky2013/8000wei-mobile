@@ -9,11 +9,11 @@
   <div class="content-block-title">扫码或点击下载</div>
   <div class="card demo-card-header-pic">
     <div valign="bottom" class="card-header color-white no-border no-padding">
-      <img class='card-cover' src="http://www.anstnd.cn/src/download.png" alt="">
+      <img class='card-cover' src="http://www.anstnd.cn/1462713859.png" alt="">
     </div>
     <div class="card-content">
       <div class="card-content-inner">
-        <a href="http://www.anstnd.cn/hi.apk" class="button button-big button-fill button-success">点此下载</a>
+        <a href="http://www.anstnd.cn/8000wei.apk" class="button button-big button-fill button-success">点此下载</a>
       </div>
     </div>
   </div>

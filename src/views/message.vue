@@ -11,7 +11,7 @@
     <a href="#tab2" class="tab-link button">行业试点</a>
     <a href="#tab3" class="tab-link button">成功案例</a>
     <a href="#tab4" class="tab-link button">创业故事</a>
-  </div>
+    </div>
 
     <div class="tabs">
       <div id="tab1" class="tab active">
@@ -31,7 +31,7 @@
       <div id="tab3" class="tab">
         <div class="list-block">
           <ul class="list-container myhome-msg">
-            <li class="item-content" v-for="msg in msgs3 | orderBy 'id' +2" v-link="{ name: 'content_show', params: {msg_id: msg.id}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
+            <li class="item-content" v-for="msg in msgs3 | orderBy 'id' +1" v-link="{ name: 'content_show', params: {msg_id: msg.id}}" style="cursor:pointer"><a href="">{{msg.title}}</a></li>
           </ul>
       </div>
       </div>
@@ -43,7 +43,7 @@
       </div>
     </div>
     </div>
-    </div>
+  </div>
 
 </template>
 
@@ -61,19 +61,19 @@ export default {
         imgs: [
           {
             src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
-            target: 'www.baidu.com'
+            target: '#'
           },
           {
             src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
-            target: 'www.baidu.com'
+            target: '#'
           },
           {
             src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
-            target: 'www.baidu.com'
+            target: '#'
           },
           {
             src: '//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg',
-            target: 'www.baidu.com'
+            target: '#'
           }
         ],
         config: {

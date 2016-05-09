@@ -10,7 +10,7 @@
     <ul>
       <li style="height: 3rem;">
         <div class="item-content" style="min-height: 3rem;">
-          <div class="item-media"><img src="../../assets/logo.png" height="auto" style='width: 2.2rem;'></div>
+          <div class="item-media"><img src={{"http://www.8000wei.com/files/"+personmsg.smallAvatar.replace("public:","")}} height="auto" style='width: 2.2rem;'></div>
           <div class="item-inner" style="min-height: 3rem;">
             <div class="item-title-row">
             </div>
@@ -22,9 +22,7 @@
         <div class="item-content">
             <div class="item-inner">
                 <div class="item-title label">昵称</div>
-                <div class="item-input">
-                    <input id="nickname" type="text" name="nickname" placeholder="用户昵称" value="abc">
-                </div>
+                {{personmsg.nickname}}
             </div>
         </div>
       </li>
@@ -33,56 +31,38 @@
       <li>
         <div class="item-content">
             <div class="item-inner">
-                <div class="item-title label">性别</div>
-                <div class="item-input">
-                    <select name="sex">
-                        <option selected>男</option>
-                        <option >女</option>
-                    </select>
-                </div>
+                <div class="item-title label">邮箱</div>
+                {{personmsg.email}}
             </div>
         </div>
       </li>
-      <li>
-          <div class="item-content">
-              <div class="item-inner">
-                  <div class="item-title label">年龄</div>
-                  <div class="item-input">
-                      <input id="age" type="number" name="age" placeholder="年龄">
-                  </div>
-              </div>
-          </div>
-      </li>
     </ul>
-    <ul style="margin-top:.5rem">
-      <li>
-        <div class="item-link item-content">
-            <div class="item-inner">
-                <div class="item-title label">手机号</div>
-                <div class="item-input">
-                    <input id="phone" type="text"  name="phone" placeholder="手机号" >
-                </div>
-            </div>
-        </div>
-      </li>
-      <li>
-          <div class="item-content">
-              <div class="item-inner">
-                  <div class="item-title label">职业</div>
-                  <div class="item-input">
-                      <input id="occupation" type="text" name="occupation" placeholder="职业">
-                  </div>
-              </div>
-          </div>
-      </li>
-    </ul>
-  </div>
-  <div class="submit-button">
-    <button class="button button-big button-fill">保存</button>
   </div>
 </div>
 </template>
-
+<script>
+import $ from 'zepto'
+export default {
+  ready () {
+    $.init()
+  },
+  data () {
+    return {
+      idlog: '',
+      personmsg: []
+    }
+  },
+  route: {
+    data (transition) {
+      let idlog = transition.to.params.idlog
+      return this.$http.get('http://8000wei.com:8000/v1/userinfo/' + idlog)
+      .then(({data: {code, success, result}})=>{
+        this.personmsg = result
+      })
+    }
+  }
+}
+</script>
 
 <style>
 .profile .list-block {

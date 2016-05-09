@@ -20,11 +20,10 @@
       <ul>
       <li v-for="task in tasks | orderBy 'id' +1" v-link="{ name: 'course_show', params: { cu_id: task.id}}" class="course-wrap">
       <a href="#" class="item-link item-content">
-         <div class="item-media"><img src={{"http://www.8000wei.com/files/"+task.middlePicture.replace("public:","")}} style='width: 4.3rem;'></div>
+         <div class="item-media"><img src={{"http://www.8000wei.com/files/"+task.smallPicture.replace("public:","")}} style='width: 4.3rem;'></div>
            <div class="item-inner">
             <div class="item-title-row">
              <div class="item-title">{{task.title}}</div>
-             <div class="item-after">￥{{task.price}}</div>
             </div>
             <div class="item-text">目标：{{task.goals.replace("|","").replace("|","")}}</div>
           </div>
@@ -79,12 +78,12 @@ export default {
           {
             path: '/course/luntan',
             icon: 'friends',
-            label: '论坛'
+            label: '创业论坛'
           },
           {
             path: '/myhome/about',
             icon: 'phone',
-            label: '关于'
+            label: '关于我们'
           },
           {
             path: '/person/mycourse/%E4%B8%8B%E8%BD%BDApp',
