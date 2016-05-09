@@ -16,27 +16,13 @@
       </div>
     </li>
   </v-list>
-  <v-content type="block">
-    <div class="invite-card">
-        <div class="invite-card-content">
-            <div class="left_logo">
-              <img src="../../assets/logo.png" height="256" width="256" class="img_full" style="border-radius: 50px">
-            </div>
-            <div class="center_code">
-                
-                <div class="wx_code">
-                    <img src="../../assets/wechat.jpg" height="795" width="795" class="img_full">
-                </div>
-                <div class="code_down">
-                    <span>关注微信公众号</span>
-                    
-                </div>
-            </div>
-            
+  <div class="content-block-title">关注微信公众号</div>
+    <div class="card demo-card-header-pic">
+      <div valign="bottom" class="card-header color-white no-border no-padding">
+        <img src="http://www.anstnd.cn/wechat.jpg" class="img_full">
         </div>
     </div>
-  </v-content>
-</div>
+  </div>
 </template>
 
 <script>

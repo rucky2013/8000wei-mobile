@@ -8,33 +8,18 @@
   <div class="banner">
     <div class="logo">
         <div class="logo_img">
-            <img src="../assets/logo.png" class="img-responsive" style="border:solid 1px #fff;border-radius: 50px;overflow:hidden;" width="64" height="64">
-            <div style="color:white;line-height: 1;">八千味</div>
+            <img src="http://www.anstnd.cn/logo.png" class="img-responsive" style="border:solid 1px #fff;border-radius: 50px;overflow:hidden;" width="64" height="64">
         </div>
         <div class="logo_txt">
-            <span class="yue">我的余额</span>
-            <span class="amount timer count-title" id="count-number" data-to="300" data-speed="500" data-decimals="0">300</span>
+            <span style="color:white;line-height: 3;"><i>八千味——小吃创业领先品牌</i></span>
         </div>
     </div>
   </div>
-  <nav class="bar bar-tab user-tab">
-    <a class="tab-item" v-link="{ name: 'mycourse', params: {myid: '在学课程'}}">
-      <span class="icon icon-app"></span>
-      <span class="tab-label">在学课程</span>
-    </a>
-    <a class="tab-item" v-link="{ name: 'mycourse', params: {myid: '收藏的课程'}}">
-      <span class="icon icon-star"></span>
-      <span class="tab-label">收藏课程</span>
-    </a>
-    <a class="tab-item" v-link="{ name: 'mycourse', params: {myid: '下载App'}}">
-      <span class="icon icon-download"></span>
-      <span class="tab-label">下载App</span>
-    </a>
-  </nav>
   <div class="list-block user-list">
+  <div  v-if="idlog">
     <ul>
       <li>
-        <a class="item-content item-link" v-link="{ path: '/user/profile', replace: true}">
+        <a class="item-content item-link" v-link="{ name: 'profile', params: { idlog: idlog}}">
         <div class="item-media"><span class="icon icon-star"></sapn></div>
         <div class="item-inner">
           <div class="item-title">个人资料</div>
@@ -42,6 +27,66 @@
         </a>
       </li>
     </ul>
+    <ul>
+      <li>
+        <a class="item-content item-link" v-link="{ name: 'collect', params: { idlog: idlog}}">
+        <div class="item-media"><span class="icon icon-star"></sapn></div>
+        <div class="item-inner">
+          <div class="item-title">收藏的课程</div>
+        </div>
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a class="item-content item-link" v-link="{ name: 'learning', params: { idlog: idlog}}">
+        <div class="item-media"><span class="icon icon-star"></sapn></div>
+        <div class="item-inner">
+          <div class="item-title">在学的课程</div>
+        </div>
+        </a>
+      </li>
+    </ul>
+    <div class="card-content-inner">
+        <a class="button button-big button-fill button-success prompt-title-ok-cancel" @click="remove">退出</a>
+      </div>
+    </div>
+    <div v-else>
+    <ul>
+    <li class="list-block">
+        <div class="item-content">
+          <div class="item-media"><span class="icon icon-star"></sapn></div>
+          <div class="item-inner">
+            <div class="item-title label">邮箱</div>
+            <div class="item-input">
+              <input type="text" placeholder="E-mail" v-model="lname">
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul>
+    <li>
+        <div class="item-content">
+          <div class="item-media"><span class="icon icon-star"></sapn></div>
+          <div class="item-inner">
+            <div class="item-title label">密码</div>
+            <div class="item-input">
+              <input type="password" placeholder="Password" v-model="lpassword">
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="card-content">
+      <div class="card-content-inner">
+        <a class="button button-big button-fill button-success prompt-title-ok-cancel" @click="logon">登录</a>
+      </div>
+ <!--      <div class="card-content-inner">
+        <a class="button button-big button-fill button-success prompt-title-ok-cancel" v-link="{path: '/person/login', replace: true}">登录</a>
+      </div> -->
+    </div>
+  </div>
     <ul>
       <li>
         <a class="item-content powered">
@@ -52,21 +97,73 @@
         </a>
       </li>
     </ul>
-    <div class="content-block">
-    <div class="row">
-      <div class="col-50"><a v-link="{ path: '/person/enroll', replace: true}" class="button button-big button-fill button-success">注册</a></div>
-      <div class="col-50"><a v-link="{ path: '/person/login', replace: true}" class="button button-big button-fill button-success">登录</a></div>
-    </div>
-  </div>
-  
-</div>
+
+
+   </div>
 </template>
 
 <script>
+import $ from 'zepto'
 export default {
+  ready () {
+    $.init()
+  },
+  data () {
+    return {
+      idlog: '',
+      lname: '',
+      lpassword: '',
+      useId: ''
+    }
+  },
+  methods: {
+    logon () {
+      if (this.lname === '') {
+        $.alert('邮箱不能为空')
+      }
+      else if (this.lpassword === '') {
+        $.alert('密码不能为空')
+      }
+      else if (this.lname !== 'anstnd@126.com') {
+        $.alert('帐号或密码错误')
+      }
+      else if (this.lpassword !== '8000wei') {
+        $.alert('帐号或密码错误')
+      }
+      // else {
+      //   return this.$http.get('http://www.8000wei.com/app_dev.php/checklogin/' + this.lname + '/' + this.lpassword)
+      //   .then(({data: {success}})=>{
+      //     localStorage.setItem('key', success.id)
+      //     this.useId = success.id
+      //     this.$route.router.go({ name: 'myhome'})
+      //   }, {
+      //     headers: 'Access-Control-Allow-Origin: *'
+      //   }).error($.alert('用户名或密码错误'))
+      // }
+      else {
+        return this.$http.get('http://8000wei.com:8000/v1/userinfo/23')
+        .then(({data: {code, success, result}})=>{
+          localStorage.setItem('key', result.id)
+          this.useId = result.id
+          this.$route.router.go({ name: 'myhome'})
+        }, {
+          headers: 'Access-Control-Allow-Origin: *'
+        }).error((message)=>{$.alert('用户名或密码错误')})
+      }
+    },
+    remove () {
+      localStorage.removeItem('key')
+      this.$route.router.go({ name: 'myhome'})
+    }
+  },
+  route: {
+    data () {
+      this.idlog = localStorage.getItem('key')
+      return this.idlog
+    }
+  }
 }
 </script>
-
 <style>
 .banner {
   width: 100%;

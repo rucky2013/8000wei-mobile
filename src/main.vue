@@ -4,7 +4,7 @@
         v-if="isIndex">
         <v-tab-item :options="options"></v-tab-item>
       </v-bar>
-      <router-view transition="fade" transition-mode="out-in" keep-alive></router-view>
+      <router-view transition="fade" transition-mode="out-in"></router-view>
   </div>
 </template>
 
